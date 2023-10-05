@@ -33,3 +33,17 @@ button {
 figure {
   margin: 0;
 }
+
+@media (hover: none) {
+  .block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (hover: hover) {
+  .block {
+    padding: 70px;
+  }
+}
