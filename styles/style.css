@@ -8,10 +8,12 @@
   --font-main-color: #000;
   --main-color: #ed6436;
   --font-secondary-color: #fff;
+  --font-family: "Nunito", sans-serif;
 }
 
 body {
   margin: 0;
+  font-family: var(--font-family);
 }
 
 h1,
@@ -24,6 +26,12 @@ a {
   color: inherit;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
 button {
   font: inherit;
   border: none;
@@ -34,12 +42,56 @@ figure {
   margin: 0;
 }
 
-@media (hover: none) {
-  .block {
+.page-title {
+  color: var(--main-color);
+}
+
+.button {
+  border: transparent 2px;
+  border-radius: 30px;
+  border-top-left-radius: 0;
+  padding: 1rem 1rem;
+  height: max-content;
+  background-color: var(--main-color);
+  color: var(--font-secondary-color);
+}
+
+.button:hover,
+.button:active {
+  background-color: var(--font-secondary-color);
+  color: var(--font-main-color);
+  border: solid 2px;
+  border-color: #ed6436;
+}
+
+.pet-card {
+  border-radius: 25px;
+  position: relative;
+}
+
+.pet-card__img {
+  border-radius: inherit;
+  object-fit: cover;
+}
+
+.pet-card__description__action {
+  font-weight: 800;
+}
+.pet-card__description {
+  position: absolute;
+  color: transparent;
+  bottom: 20%;
+  right: 35%;
+}
+
+@media only screen and (max-width: 767px) {
+  .block,
+  .block--flex {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+    gap: 20px;
   }
 
   .font--medium {
@@ -49,9 +101,27 @@ figure {
   .font--big {
     font-size: 9vw;
   }
+
+  .pet-card {
+    padding: 30px 10vw;
+  }
+  .pet-card__img {
+    width: 70vw;
+    height: 46.6vw;
+    filter: brightness(50%);
+  }
+
+  .pet-card__description {
+    color: var(--font-secondary-color);
+    font-size: 4vw;
+  }
+
+  .pet-card__description__type-action {
+    font-size: 2vw;
+  }
 }
 
-@media (hover: hover) {
+@media only screen and (min-width: 767px) {
   .block {
     padding: 70px;
   }
@@ -69,22 +139,26 @@ figure {
     justify-content: space-between;
     align-items: center;
   }
-}
 
-.page-title {
-  color: var(--main-color);
-}
+  .pets {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
 
-.button {
-  background-color: var(--main-color);
-  color: var(--font-secondary-color);
-  border-radius: 30px;
-  border-top-left-radius: 0;
-  padding: 1rem 1rem;
-  height: max-content;
-}
+  .pet-card__description__type-action {
+    font-size: 1rem;
+    text-align: center;
+  }
 
-.img {
-  border-radius: inherit;
-  object-fit: cover;
+  .pet-card:hover {
+    .pet-card__img {
+      filter: brightness(50%);
+    }
+
+    .pet-card__description {
+      color: var(--font-secondary-color);
+      font-size: 30px;
+    }
+  }
 }
